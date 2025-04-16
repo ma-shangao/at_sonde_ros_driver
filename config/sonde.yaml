@@ -1,0 +1,12 @@
+/**:
+  ros__parameters:
+    streaming_param_reg_adds:
+      [
+        5912,
+        5919
+      ]
+    pub_topic_names:
+      [
+        "/sonde/fwt/concentration",
+        "/sonde/fwt/intensity"
+      ]

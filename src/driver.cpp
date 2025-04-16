@@ -237,7 +237,8 @@ class sonde_driver : public rclcpp::Node
                     return;
                 }
                 int data_quality = reg_tab[2];
-                if (data_quality != 0) {
+                // data quality ID 4 is a wiper warning
+                if (data_quality != 0 and data_quality != 4) {
                     RCLCPP_DEBUG_STREAM(
                         this->get_logger(),
                         "Data quality ID: " <<

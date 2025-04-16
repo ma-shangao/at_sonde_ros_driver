@@ -14,14 +14,14 @@ rosdep install --from-paths src --ignore-src -r -y
 ## ROS 2 Node: `at_sonde_ros_driver_node`
 
 ### Published Topics
-List the topics the node publishes:
+The node publishes the following topics:
 | Topic Name                     | Message Type           | Description                             |
 |--------------------------------|------------------------|-----------------------------------------|
 | see ROS param `pub_topic_names`| `std_msgs/msg/Float32` | Publisher of selected sonde parameters |
 | ...|
 
-### Parameters
-Describe the configurable ROS parameters for the node:
+### ROS Parameters
+The configurable ROS parameters for the node:
 | Parameter Name                | Type                       | Default Value    | Description                                                             |
 |-------------------------------|----------------------------|------------------|-------------------------------------------------------------------------|
 | `modbus_debug_flag`           | bool                       | true             | Enable debug messages for modbus communication                          |
@@ -33,12 +33,17 @@ Describe the configurable ROS parameters for the node:
 | `sonde_add`                   | int                        | 1                | Sonde address for modbus communication                                  |
 | `streaming_param_reg_adds`    | `std::vector<int64_t>`     | `{5450, 5674}`   | Register addresses of the parameters to be streamed                     |
 
-The `pub_topic_names` and `streaming_param_reg_adds` parameters must be set in pairs. The first element of `pub_topic_names` corresponds to the first element of `streaming_param_reg_adds`, and so on. 
+The `pub_topic_names` and `streaming_param_reg_adds` parameters must be set in pairs. The first element of `pub_topic_names` corresponds to the first element of `streaming_param_reg_adds`, and so on.
 
 ### Usage
-Provide instructions on how to run the node:
+To run the node, use the following command:
 ```bash
 ros2 run at_sonde_ros_driver at_sonde_ros_driver_node
+```
+
+The ROS parameters can also be configured using a YAML file.
+```bash
+ros2 run at_sonde_ros_driver at_sonde_ros_driver_node --ros-args --params-file <path_to_yaml_file>
 ```
 
 ## Known Issues
