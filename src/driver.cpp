@@ -59,6 +59,14 @@ class sonde_driver : public rclcpp::Node
                     "battery_remaining"
                 }
             );
+            this->declare_parameter(
+                "serial_port",
+                std::string("/dev/ttyUSB0")
+            );
+            this->declare_parameter(
+                "baud",
+                19200
+            );
 
             assert(
                 this->get_parameter("streaming_param_reg_adds").as_integer_array().size() ==
@@ -77,7 +85,9 @@ class sonde_driver : public rclcpp::Node
                 );
             }
 
-            mb = modbus_new_rtu("/dev/ttyUSB0", 19200, 'E', 8, 1);
+            mb = modbus_new_rtu(
+                this->get_parameter("serial_port").as_string().c_str(),
+                this->get_parameter("baud").as_int(), 'E', 8, 1);
             if (mb == NULL) {
                 RCLCPP_ERROR_STREAM(
                     this->get_logger(),

@@ -17,21 +17,23 @@ rosdep install --from-paths src --ignore-src -r -y
 The node publishes the following topics:
 | Topic Name                     | Message Type           | Description                             |
 |--------------------------------|------------------------|-----------------------------------------|
-| see ROS param `pub_topic_names`| `std_msgs/msg/Float32` | Publisher of selected sonde parameters |
+| see ROS param `pub_topic_names`| `std_msgs/msg/Float32` | Publisher of selected sonde parameters  |
 | ...|
 
 ### ROS Parameters
 The configurable ROS parameters for the node:
 | Parameter Name                | Type                       | Default Value    | Description                                                             |
 |-------------------------------|----------------------------|------------------|-------------------------------------------------------------------------|
+| `baud`                        | int                        | 19200            | Baud rate for serial communication                                      | 
 | `modbus_debug_flag`           | bool                       | true             | Enable debug messages for modbus communication                          |
 | `modbus_timeout_microseconds` | int                        | 700000           | Timeout for modbus communication in microseconds                        |
 | `modbus_timeout_seconds`      | int                        | 0                | Timeout for modbus communication in seconds                             |
-| `pub_topic_names`             | `std::vector<std::string>` | `{"temperature","battery_remaining"}` | Names of the topics to publish the streamed data   |
+| `pub_topic_names`             | list[string]               | ["temperature", "battery_remaining"] | Names of the topics to publish the streamed data    |
 | `retry_limit`                 | int                        | 5                | Number of retries for modbus communication                              |
 | `sensor_scan_flag`            | bool                       | false            | Scan the sensor on the first use after reconfiguration                  |
+| `serial_port`                 | string                     | "/dev/ttyUSB0"   | Serial port for modbus communication                                    |
 | `sonde_add`                   | int                        | 1                | Sonde address for modbus communication                                  |
-| `streaming_param_reg_adds`    | `std::vector<int64_t>`     | `{5450, 5674}`   | Register addresses of the parameters to be streamed                     |
+| `streaming_param_reg_adds`    | list[int]                  | [5450, 5674]     | Register addresses of the parameters to be streamed                     |
 
 The `pub_topic_names` and `streaming_param_reg_adds` parameters must be set in pairs. The first element of `pub_topic_names` corresponds to the first element of `streaming_param_reg_adds`, and so on.
 
