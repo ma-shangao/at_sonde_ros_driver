@@ -2,6 +2,8 @@
   ros__parameters:
     serial_port: "/dev/ttyUSB0"
     baud: 19200
+    modbus_debug_flag: false
+    sensor_scan_flag: false
     streaming_param_reg_adds:
       [
         5912,

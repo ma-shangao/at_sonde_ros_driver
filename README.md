@@ -25,7 +25,7 @@ The configurable ROS parameters for the node:
 | Parameter Name                | Type                       | Default Value    | Description                                                             |
 |-------------------------------|----------------------------|------------------|-------------------------------------------------------------------------|
 | `baud`                        | int                        | 19200            | Baud rate for serial communication                                      | 
-| `modbus_debug_flag`           | bool                       | true             | Enable debug messages for modbus communication                          |
+| `modbus_debug_flag`           | bool                       | false            | Enable debug messages for modbus communication                          |
 | `modbus_timeout_microseconds` | int                        | 700000           | Timeout for modbus communication in microseconds                        |
 | `modbus_timeout_seconds`      | int                        | 0                | Timeout for modbus communication in seconds                             |
 | `pub_topic_names`             | list[string]               | ["temperature", "battery_remaining"] | Names of the topics to publish the streamed data    |

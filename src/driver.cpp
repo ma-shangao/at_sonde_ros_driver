@@ -25,7 +25,7 @@ class sonde_driver : public rclcpp::Node
             // Modbus Debug flag
             this->declare_parameter(
                 "modbus_debug_flag",
-                true
+                false
             );
             this->declare_parameter(
                 "modbus_timeout_seconds",
