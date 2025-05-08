@@ -2,8 +2,8 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>at_sonde_ros_driver</name>
-  <version>0.1.0</version>
-  <description>A ROS 2 driver to stream the monitored parameters of a In-Situ Aqua TROLL Multiparameter Sonde.</description>
+  <version>0.1.1</version>
+  <description>A ROS 2 driver to stream the monitored parameters of an In-Situ Aqua TROLL Multiparameter Sonde.</description>
   <maintainer email="song.ma.18@ucl.ac.uk">MA Song</maintainer>
   <license>BSD-3-Clause</license>
 
