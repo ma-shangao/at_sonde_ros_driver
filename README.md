@@ -1,5 +1,7 @@
 # at_sonde_ros_driver
 
+[![ROS Industrial CI](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml/badge.svg?branch=main)](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml)
+
 ## Overview
 This package provides a ROS 2 driver to stream the monitored parameters of an In-Situ Aqua TROLL Multiparameter Sonde, through modbus serial communication.
 
