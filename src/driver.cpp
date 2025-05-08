@@ -1,4 +1,32 @@
-// Copyright 2025 MA Song at UCL FRL
+// Copyright 2025 MA Song
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//
+//    * Neither the name of the MA Song nor the names of its
+//      contributors may be used to endorse or promote products derived from
+//      this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
+
+
 #include <modbus.h>
 #include <errno.h>
 
@@ -108,7 +136,9 @@ public:
       return;
     }
             /*Set the Debug mode*/
-    if (modbus_set_debug(mb, int(this->get_parameter("modbus_debug_flag").as_bool())) == -1) {
+    if (modbus_set_debug(mb,
+      static_cast<int>(this->get_parameter("modbus_debug_flag").as_bool())) == -1)
+    {
       RCLCPP_ERROR_STREAM(
                     this->get_logger(),
                     "Failed to set debug mode: " <<
@@ -156,7 +186,7 @@ public:
                         SCAN_SENSORS_REG_ADD,
                         1,
                         &scan_sensors
-        )) == -1 and retries < retry_limit)
+        )) == -1 && retries < retry_limit)
       {
         retries++;
       }
@@ -233,7 +263,7 @@ private:
       retries = 0;
       while ((rc = modbus_read_registers(
                     mb,
-                    int(*it),
+                    static_cast<int>(*it),
                     7,
                     reg_tab
         ) == -1) && retries < retry_limit)
@@ -253,7 +283,7 @@ private:
       }
       int data_quality = reg_tab[2];
                 // data quality ID 4 is a wiper warning
-      if (data_quality != 0 and data_quality != 4) {
+      if (data_quality != 0 && data_quality != 4) {
         RCLCPP_DEBUG_STREAM(
                         this->get_logger(),
                         "Data quality ID: " <<
@@ -265,7 +295,6 @@ private:
       sonde_data_pubs.at(it - reg_adds.begin())->publish(msg);
     }
   }
-
 };
 
 int main(int argc, char ** argv)
