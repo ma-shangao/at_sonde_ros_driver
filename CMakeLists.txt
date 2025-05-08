@@ -39,10 +39,11 @@ install(TARGETS
   lib/${PROJECT_NAME}
 )
 
-
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
+  if(NOT $ENV{ROS_DISTRO} STREQUAL "humble")
+    find_package(ament_lint_auto REQUIRED)
+    ament_lint_auto_find_test_dependencies()
+  endif()
 endif()
 
 ament_package()
