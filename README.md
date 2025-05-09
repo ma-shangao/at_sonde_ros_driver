@@ -2,6 +2,11 @@
 
 [![ROS Industrial CI](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml/badge.svg?branch=main)](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml)
 
+## ROS Buildfarm Status
+| | rolling | jazzy | humble |
+|-|---------|-------|--------|
+| devel | [![Build Status](https://build.ros2.org/job/Rdev__at_sonde_ros_driver__ubuntu_noble_amd64/badge/icon)](https://build.ros2.org/job/Rdev__at_sonde_ros_driver__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/job/Jdev__at_sonde_ros_driver__ubuntu_noble_amd64/badge/icon)](https://build.ros2.org/job/Jdev__at_sonde_ros_driver__ubuntu_noble_amd64/) | [![Build Status](https://build.ros2.org/job/Hdev__at_sonde_ros_driver__ubuntu_jammy_amd64/badge/icon)](https://build.ros2.org/job/Hdev__at_sonde_ros_driver__ubuntu_jammy_amd64/) |
+
 ## Overview
 This package provides a ROS 2 driver to stream the monitored parameters of an In-Situ Aqua TROLL Multiparameter Sonde, through modbus serial communication.
 

@@ -21,9 +21,14 @@ find_path(LIBMODBUS_INCLUDE_DIR
 
 add_executable(${PROJECT_NAME}_node src/driver.cpp)
 
-ament_target_dependencies(${PROJECT_NAME}_node
-  rclcpp
-  std_msgs
+# ament_target_dependencies(${PROJECT_NAME}_node
+#   rclcpp
+#   std_msgs
+# )
+target_link_libraries(${PROJECT_NAME}_node
+  ${std_msgs_TARGETS}
+  rclcpp::rclcpp
+  ${LIBMODBUS}
 )
 
 target_link_libraries(${PROJECT_NAME}_node
