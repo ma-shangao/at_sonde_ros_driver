@@ -2,8 +2,8 @@
 Changelog for package at_sonde_ros_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2025-05-13)
+------------------
 
 * Create dependabot.yml
 * Retire ament_target_dependencies in cmake
