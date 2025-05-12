@@ -31,9 +31,6 @@ target_link_libraries(${PROJECT_NAME}_node
   ${LIBMODBUS}
 )
 
-target_link_libraries(${PROJECT_NAME}_node
-  ${LIBMODBUS}
-)
 target_include_directories(${PROJECT_NAME}_node
   PRIVATE ${LIBMODBUS_INCLUDE_DIR}
 )
