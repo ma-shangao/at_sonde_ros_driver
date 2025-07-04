@@ -2,19 +2,49 @@
 
 [![ROS Industrial CI](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml/badge.svg?branch=main)](https://github.com/ma-shangao/at_sonde_ros_driver/actions/workflows/ros_ind_ci_action.yml)
 
-![Rolling Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FRdev__at_sonde_ros_driver__ubuntu_noble_amd64%2F&logo=ros&label=rolling%20devel)
-![Jazzy Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FJdev__at_sonde_ros_driver__ubuntu_noble_amd64%2F&logo=ros&label=jazzy%20devel)
-![Humble Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FHdev__at_sonde_ros_driver__ubuntu_jammy_amd64%2F&logo=ros&label=humble%20devel)
+[![Jazzy Bin](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FJbin_uN64__at_sonde_ros_driver__ubuntu_noble_amd64__binary%2F&logo=ros&label=jazzy%20bin)](https://build.ros2.org/job/Jbin_uN64__at_sonde_ros_driver__ubuntu_noble_amd64__binary/)
+
+
+[![Rolling Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FRdev__at_sonde_ros_driver__ubuntu_noble_amd64%2F&logo=ros&label=rolling%20devel)](https://build.ros2.org/job/Rdev__at_sonde_ros_driver__ubuntu_noble_amd64/)
+[![Jazzy Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FJdev__at_sonde_ros_driver__ubuntu_noble_amd64%2F&logo=ros&label=jazzy%20devel)](https://build.ros2.org/job/Jdev__at_sonde_ros_driver__ubuntu_noble_amd64/)
+[![Humble Devel](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fbuild.ros2.org%2Fjob%2FHdev__at_sonde_ros_driver__ubuntu_jammy_amd64%2F&logo=ros&label=humble%20devel)](https://build.ros2.org/job/Hdev__at_sonde_ros_driver__ubuntu_jammy_amd64/)
 
 ## Overview
 This package provides a ROS 2 driver to stream the monitored parameters of an In-Situ Aqua TROLL Multiparameter Sonde, through modbus serial communication.
 
 This package has been tested with the AT600 Sonde.
 
-## Requirements
-Prepare the required dependencies with rosdep:
+## Installation
+
+Make sure you have [ROS 2](https://docs.ros.org/en/jazzy/Installation.html) installed on your system.
+
+### Binary
+
+To install the binary package, use the following command:
 ```bash
+sudo apt update
+sudo apt install ros-jazzy-at-sonde-ros-driver
+```
+
+### From Source
+To build the package from source, follow these steps:
+1. Create a workspace directory:
+```bash
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+```
+2. Clone the repository:
+```bash
+git clone https://github.com/ma-shangao/at_sonde_ros_driver.git
+```
+3. Prepare the required dependencies with rosdep:
+```bash
+cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y
+```
+4. Build the package:
+```bash
+colcon build
 ```
 
 ## ROS 2 Node: `at_sonde_ros_driver_node`
